@@ -24,19 +24,31 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         let frame = CGRectMake(0, 0, container.bounds.width, container.bounds.height)
         webView.frame = frame
-        
-        let urlStr = "https://developer.apple.com/swift/blog"
-        let url = NSURL(string: urlStr)!
-        let request = NSURLRequest(URL: url)
-        
-        webView.loadRequest(request)
+
+        loadRequest("https://developer.apple.com/swift/blog");
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        print("received memory warning")
+    }
+    
+    func loadRequest(urlStr: String) {
+        let url = NSURL(string: urlStr)!
+        let request = NSURLRequest(URL: url)
+        webView.loadRequest(request)
     }
 
+    @IBAction func loadSwift(sender: AnyObject) {
+        loadRequest("https://developer.apple.com/swift/blog/");
+    }
 
+    @IBAction func loadGossip(sender: AnyObject) {
+        loadRequest("http://www.tmz.com/");
+    }
+    
+    @IBAction func loadSteak(sender: AnyObject) {
+        loadRequest("http://steakbytes.com/");
+    }
 }
 
