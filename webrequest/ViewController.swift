@@ -19,6 +19,9 @@ class ViewController: UIViewController {
         
         webView = WKWebView()
         container.addSubview(webView)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         let frame = CGRectMake(0, 0, container.bounds.width, container.bounds.height)
         webView.frame = frame
         
@@ -27,7 +30,6 @@ class ViewController: UIViewController {
         let request = NSURLRequest(URL: url)
         
         webView.loadRequest(request)
-        
     }
 
     override func didReceiveMemoryWarning() {
